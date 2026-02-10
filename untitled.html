@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abu Talha | Portfolio</title><style>
+:root{
+  --bg:#f5f7fb;
+  --text:#111827;
+  --glass:rgba(255,255,255,0.55);
+  --accent:#007aff;
+}
+
+[data-theme="dark"]{
+  --bg:#0f172a;
+  --text:#e5e7eb;
+  --glass:rgba(30,41,59,0.55);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.4s;
+}
+
+section,header{
+  max-width:1100px;
+  margin:auto;
+  padding:100px 20px;
+}
+
+h1{font-size:3rem;letter-spacing:-1px}
+h2{font-size:2.2rem;margin-bottom:30px}
+.subtitle{opacity:.7;margin-top:10px}
+
+/* Glass */
+.glass{
+  backdrop-filter:blur(18px);
+  background:var(--glass);
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 20px 50px rgba(0,0,0,0.1);
+}
+
+/* Dock */
+.dock{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:20px;
+  padding:14px 22px;
+  backdrop-filter:blur(20px);
+  border-radius:28px;
+  background:var(--glass);
+  z-index:1000;
+}
+
+.dock a{
+  text-decoration:none;
+  color:var(--text);
+  font-size:1.4rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transition:.25s;
+}
+
+.dock a span{font-size:.65rem;opacity:0}
+
+.dock a:hover{
+  transform:translateY(-8px) scale(1.2);
+}
+
+.dock a:hover span{opacity:1}
+
+/* Hero */
+.hero{text-align:center}
+
+.profile{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+
+.bubble{
+  display:inline-block;
+  margin-top:12px;
+  background:var(--accent);
+  color:white;
+  padding:8px 18px;
+  border-radius:20px;
+  animation:pop .8s ease;
+}
+
+@keyframes pop{
+  from{opacity:0;transform:scale(.7)}
+  to{opacity:1}
+}
+
+.controls{
+  margin-top:40px;
+  padding:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  justify-content:center;
+}
+
+button{
+  border:none;
+  padding:10px 18px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.colors{display:flex;gap:10px}
+.color{
+  width:20px;height:20px;border-radius:50%;cursor:pointer
+}
+
+/* Slider */
+.slider{
+  position:relative;
+  height:420px;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:1s;
+}
+
+.slide.active{opacity:1}
+
+.slide img{
+  width:100%;height:100%;object-fit:cover
+}
+
+/* Terminal */
+.terminal{padding:25px;font-family:monospace}
+.dots{display:flex;gap:8px;margin-bottom:10px}
+.dot{width:12px;height:12px;border-radius:50%}
+.red{background:#ff5f56}
+.yellow{background:#ffbd2e}
+.green{background:#27c93f}
+
+/* Contact */
+.contact{padding:30px;font-size:1.1rem}
+
+/* Reveal */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+@media(max-width:768px){
+  h1{font-size:2.2rem}
+  .slider{height:260px}
+}
+</style></head>
+<body><!-- Dock Navbar --><nav class="dock">
+  <a href="#home">🏠<span>Home</span></a>
+  <a href="#about">💻<span>About</span></a>
+  <a href="#gallery">🖼️<span>Gallery</span></a>
+  <a href="#contact">📬<span>Contact</span></a>
+</nav><!-- Hero --><header id="home" class="hero reveal">
+  <img class="profile" src="https://raw.githubusercontent.com/jubairbro/Faw/refs/heads/main/photos/IMG_20250822_001904_975.jpg">
+  <div class="bubble">أبو طلحة</div>
+  <h1>Abu Talha</h1>
+  <p class="subtitle">Creative Developer • Designer • Dreamer</p>  <div class="controls glass">
+    <button id="playAudio">▶ Quran</button>
+    <button id="toggleTheme">🌙 / ☀️</button><div class="colors">
+  <span class="color" style="background:#007aff" data-color="#007aff"></span>
+  <span class="color" style="background:#ff375f" data-color="#ff375f"></span>
+  <span class="color" style="background:#34c759" data-color="#34c759"></span>
+  <span class="color" style="background:#af52de" data-color="#af52de"></span>
+  <span class="color" style="background:#ff9f0a" data-color="#ff9f0a"></span>
+</div>
+
+  </div>
+</header><!-- Gallery --><section id="gallery" class="reveal">
+  <h2>Gallery</h2>
+  <div class="slider glass" id="slider">
+    <div class="slide active"><img src="https://raw.githubusercontent.com/jubairbro/Faw/refs/heads/main/photos/IMG_20250822_001904_975.jpg"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/jubairbro/Faw/refs/heads/main/photos/1735204262659.jpg"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/jubairbro/Faw/refs/heads/main/photos/satoru-gojo-jujutsu-5120x2880-10828.png"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/jubairbro/Faw/refs/heads/main/photos/IMG_20251001_161822_246.jpg"></div>
+  </div>
+</section><!-- About --><section id="about" class="reveal">
+  <h2>About</h2>
+  <div class="terminal glass">
+    <div class="dots">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+<pre>
+const Talha = {
+  name: "Abu Talha",
+  rank: "Leader of Noobs",
+  status: "404: Potential Not Found",
+  skills: [
+    "Coding",
+    "Gaming",
+    "Photography"
+  ]
+};
+</pre>
+  </div>
+</section><!-- Contact --><section id="contact" class="reveal">
+  <h2>Contact</h2>
+  <div id="contactCard" class="contact glass"></div>
+</section><audio id="quran">
+  <source src="https://github.com/jubairbro/Faw/raw/refs/heads/main/audio.mp3" type="audio/mpeg">
+</audio><script>
+// Slider
+const slides=document.querySelectorAll('.slide');
+let index=0;
+function nextSlide(){
+  slides[index].classList.remove('active');
+  index=(index+1)%slides.length;
+  slides[index].classList.add('active');
+}
+setInterval(nextSlide,2000);
+
+// Swipe
+let startX=0;
+const slider=document.getElementById('slider');
+slider.addEventListener('touchstart',e=>startX=e.touches[0].clientX);
+slider.addEventListener('touchend',e=>{
+  let endX=e.changedTouches[0].clientX;
+  if(startX-endX>50)nextSlide();
+  if(endX-startX>50){
+    slides[index].classList.remove('active');
+    index=(index-1+slides.length)%slides.length;
+    slides[index].classList.add('active');
+  }
+});
+
+// Theme
+if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+  document.documentElement.dataset.theme='dark';
+}
+
+const savedTheme=localStorage.getItem('theme');
+if(savedTheme)document.documentElement.dataset.theme=savedTheme;
+
+document.getElementById('toggleTheme').onclick=()=>{
+  const current=document.documentElement.dataset.theme;
+  const newTheme=current==='dark'?'light':'dark';
+  document.documentElement.dataset.theme=newTheme;
+  localStorage.setItem('theme',newTheme);
+};
+
+// Accent
+document.querySelectorAll('.color').forEach(c=>{
+  c.onclick=()=>{
+    document.documentElement.style.setProperty('--accent',c.dataset.color);
+    localStorage.setItem('accent',c.dataset.color);
+  };
+});
+
+const savedAccent=localStorage.getItem('accent');
+if(savedAccent)
+  document.documentElement.style.setProperty('--accent',savedAccent);
+
+// Audio
+const audio=document.getElementById('quran');
+document.getElementById('playAudio').onclick=()=>{
+  audio.paused?audio.play():audio.pause();
+};
+
+// Reveal
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting)entry.target.classList.add('show');
+  });
+},{threshold:.15});
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Contact JSON
+const contact={
+  email:'mdabutalhaalif375@gmail.com',
+  instagram:'https://www.instagram.com/___blue__blooded___?igsh=OGQ5ZDc2ODk2ZA==',
+  location:'Bangladesh'
+};
+
+const card=document.getElementById('contactCard');
+card.innerHTML=`
+<p><strong>Email:</strong> <a href="mailto:${contact.email}">${contact.email}</a></p>
+<p><strong>Instagram:</strong> <a target="_blank" href="${contact.instagram}">Open Profile</a></p>
+<p><strong>Location:</strong> ${contact.location}</p>
+`;
+</script></body>
+</html>
